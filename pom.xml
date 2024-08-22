@@ -12,7 +12,7 @@
 	<artifactId>fipe-table</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>fipe-table</name>
-	<description>CLI for FIPE Table application, to consume FIPE API to show informations and allow searches to other users</description>
+	<description>CLI for FIPE Table application, to consume FIPE API to show information and allow searches to other users</description>
 	<url/>
 	<licenses>
 		<license/>
