@@ -19,7 +19,7 @@ public class DisplayService {
                 ATENÇÃO! Você deve entrar com o exato nome da categoria para que a consulta funcione corretamente.
                 ! = ! = ! = ! = ! = ! = ! = ! = ! = ! = ! = ! = ! = ! = ! = ! = ! = ! = ! = ! = ! = ! = ! = ! = !
                 
-                As categorias são: "CARROS", "MOTOS" e "CAMINHOES" 
+                As categorias são: "CARROS", "MOTOS" e "CAMINHOES":\s
                 """);
     }
 
