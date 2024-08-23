@@ -17,6 +17,7 @@ public class UserInteraction {
     }
 
     public String getBaseModelName() {
+        SC.nextLine();
         System.out.print("Entre com um trecho do nome do veículo que gostaria de consultar: ");
         return SC.nextLine();
     }

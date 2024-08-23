@@ -2,6 +2,7 @@ package br.com.floresdev.fipe_table.services;
 
 import br.com.floresdev.fipe_table.models.AutomotiveBrand;
 import br.com.floresdev.fipe_table.models.BaseBrand;
+import java.util.stream.Collectors;
 
 public class AutomotiveService {
 
@@ -20,6 +21,13 @@ public class AutomotiveService {
     public AutomotiveBrand getAutomotiveBrand(String brandCode, String fullAddress) {
         return dataConverter.convertData(ApiConsumeService.getData(fullAddress + brandCode + "/modelos/"),
                 AutomotiveBrand.class);
+    }
+
+    public AutomotiveBrand getFilteredAutomotiveBrand(AutomotiveBrand automotiveBrand, String brandModelName) {
+        return new AutomotiveBrand(automotiveBrand.baseModels().stream()
+                .filter(b -> b.name().toLowerCase().contains(brandModelName.toLowerCase()))
+                .collect(Collectors.toList())
+        );
     }
 
 }

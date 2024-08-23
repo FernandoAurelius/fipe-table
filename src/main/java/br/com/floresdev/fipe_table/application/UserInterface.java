@@ -1,5 +1,6 @@
 package br.com.floresdev.fipe_table.application;
 
+import br.com.floresdev.fipe_table.models.AutomotiveBrand;
 import br.com.floresdev.fipe_table.services.AutomotiveService;
 import br.com.floresdev.fipe_table.services.DisplayService;
 
@@ -23,12 +24,14 @@ public class UserInterface {
 
         // Instancia novo AutomotiveBrand e exibe lista de BaseModels
         String brandCode = userInteraction.getBrandCode();
-        displayService.showBaseModels(automotiveService.getAutomotiveBrand(brandCode, fullAddress));
+        AutomotiveBrand automotiveBrand = automotiveService.getAutomotiveBrand(brandCode, fullAddress);
+        displayService.showBaseModels(automotiveBrand);
 
-//        String baseModelName = userInteraction.getBaseModelName();
-//        // Cria nova lista de BaseModel com base na lista antiga filtrada pelo nome inserido
-//        /* Exibe a nova lista */
-//        displayService.showBaseModels(null);
+        // Cria nova lista de BaseModel com base na lista antiga filtrada pelo nome inserido
+        String baseModelName = userInteraction.getBaseModelName();
+        automotiveBrand = automotiveService.getFilteredAutomotiveBrand(automotiveBrand, baseModelName);
+        displayService.showBaseModels(automotiveBrand);
+
 //        Integer baseModelCode = userInteraction.getBaseModelCode();
 //        // Instancia novo AutomotiveModel com base no código fornecido
 //        /* Para cada BaseYear dentro de AutomotiveModel, instancia novo AutomotiveYear com base no código do BaseYear
