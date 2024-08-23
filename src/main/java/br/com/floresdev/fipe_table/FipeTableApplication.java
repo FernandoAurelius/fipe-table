@@ -1,5 +1,6 @@
 package br.com.floresdev.fipe_table;
 
+import br.com.floresdev.fipe_table.application.UserInterface;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,6 +14,7 @@ public class FipeTableApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		System.out.println("Starting FIPE Table!");
+		UserInterface userInterface = new UserInterface();
+		userInterface.start();
 	}
 }

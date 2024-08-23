@@ -6,4 +6,8 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record AutomotiveCategory(List<BaseBrand> baseBrands) {
+    @Override
+    public String toString() {
+        return baseBrands.toString();
+    }
 }

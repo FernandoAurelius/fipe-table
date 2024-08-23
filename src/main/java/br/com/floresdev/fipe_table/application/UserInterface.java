@@ -7,12 +7,13 @@ public class UserInterface {
 
     private final DisplayService displayService = new DisplayService();
     private final UserInteraction userInteraction = new UserInteraction();
+    private final AutomotiveService automotiveService = new AutomotiveService();
 
     public void start() {
         displayService.startMessage();
         String category = userInteraction.getCategory();
         // Instancia um novo AutomotiveCategory
-        displayService.showBaseBrands(null);
+        displayService.showBaseBrands(automotiveService.getAutomotiveCategory(category).baseBrands());
         String brandCode = userInteraction.getBrandCode();
         // Instancia um novo AutomotiveBrand
         displayService.showBaseModels(null);

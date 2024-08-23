@@ -11,7 +11,8 @@ public class AutomotiveService {
     public AutomotiveCategory getAutomotiveCategory(String category) {
         return new AutomotiveCategory(
                 dataConverter.convertData(
-                        ApiConsumeService.getData(ADDRESS + category), AutomotiveCategory.class
+                        ApiConsumeService.getData(ADDRESS + category.toLowerCase() + "/marcas/"),
+                        AutomotiveCategory.class
                 ).baseBrands()
         );
     }
