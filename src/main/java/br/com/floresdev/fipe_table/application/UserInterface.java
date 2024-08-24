@@ -7,10 +7,17 @@ import br.com.floresdev.fipe_table.utils.AutomotiveUrlBuilder;
 
 public class UserInterface {
 
-    private final DisplayService displayService = new DisplayService();
-    private final UserInteraction userInteraction = new UserInteraction();
-    private final AutomotiveService automotiveService = new AutomotiveService();
-    private final AutomotiveUrlBuilder automotiveUrlBuilder = new AutomotiveUrlBuilder();
+    private DisplayService displayService;
+    private UserInteraction userInteraction;
+    private AutomotiveService automotiveService;
+    private AutomotiveUrlBuilder automotiveUrlBuilder;
+
+    public UserInterface(DisplayService displayService, UserInteraction userInteraction, AutomotiveService automotiveService, AutomotiveUrlBuilder automotiveUrlBuilder) {
+        this.displayService = displayService;
+        this.userInteraction = userInteraction;
+        this.automotiveService = automotiveService;
+        this.automotiveUrlBuilder = automotiveUrlBuilder;
+    }
 
     public void start() {
         displayService.startMessage();
