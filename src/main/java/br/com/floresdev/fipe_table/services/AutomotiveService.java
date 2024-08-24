@@ -12,12 +12,12 @@ public class AutomotiveService {
 
     private final DataConverter dataConverter = new DataConverter();
 
-    public List<BaseBrand> getBaseBrands(String fullAddress) {
-        return List.of(dataConverter.convertData(ApiConsumeService.getData(fullAddress), BaseBrand[].class));
+    public List<BaseBrand> getBaseBrands(String categoryAddress) {
+        return List.of(dataConverter.convertData(categoryAddress, BaseBrand[].class));
     }
 
     public AutomotiveBrand getAutomotiveBrand(String brandAddress) {
-        return dataConverter.convertData(ApiConsumeService.getData(brandAddress),
+        return dataConverter.convertData(brandAddress,
                 AutomotiveBrand.class);
     }
 
@@ -30,13 +30,11 @@ public class AutomotiveService {
 
     public List<AutomotiveYear> getAutomotiveYears(List<BaseYear> baseYears, String yearsAddress) {
         return baseYears.stream().map(
-                b -> dataConverter.convertData(
-                        ApiConsumeService.getData(yearsAddress + b.codigo()), AutomotiveYear.class
-                )
+                b -> dataConverter.convertData(yearsAddress + b.codigo(), AutomotiveYear.class)
         ).collect(Collectors.toList());
     }
 
     public List<BaseYear> getBaseYears(String yearsAddress) {
-        return List.of(dataConverter.convertData(ApiConsumeService.getData(yearsAddress), BaseYear[].class));
+        return List.of(dataConverter.convertData(yearsAddress, BaseYear[].class));
     }
 }

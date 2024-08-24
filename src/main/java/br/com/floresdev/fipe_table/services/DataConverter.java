@@ -8,9 +8,9 @@ public class DataConverter implements IDataConverter {
     private final ObjectMapper mapper = new ObjectMapper();
 
     @Override
-    public <T> T convertData(String json, Class<T> convertedClass) {
+    public <T> T convertData(String address, Class<T> convertedClass) {
         try {
-            return mapper.readValue(json, convertedClass);
+            return mapper.readValue(ApiConsumeService.getData(address), convertedClass);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
