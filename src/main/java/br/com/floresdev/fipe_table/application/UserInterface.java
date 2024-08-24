@@ -1,11 +1,8 @@
 package br.com.floresdev.fipe_table.application;
 
 import br.com.floresdev.fipe_table.models.AutomotiveBrand;
-import br.com.floresdev.fipe_table.models.BaseYear;
 import br.com.floresdev.fipe_table.services.AutomotiveService;
 import br.com.floresdev.fipe_table.services.DisplayService;
-
-import java.util.List;
 
 public class UserInterface {
 
@@ -35,11 +32,12 @@ public class UserInterface {
         displayService.showBaseModels(automotiveBrand);
 
         Integer baseModelCode = userInteraction.getBaseModelCode();
+        String yearsAddress = automotiveService.getYearsAddress(brandAddress, baseModelCode);
         /* Para cada BaseYear dentro de AutomotiveModel, instancia novo AutomotiveYear com base no código do BaseYear
         e armazena numa lista de AutomotiveYear */
         displayService.showAutomotiveYears(automotiveService.getAutomotiveYears(
-                automotiveService.getBaseYears(automotiveService.getYearsAddress(brandAddress, baseModelCode)
-                ), automotiveService.getYearsAddress(brandAddress, baseModelCode)));
+                automotiveService.getBaseYears(yearsAddress), yearsAddress)
+        );
     }
 
 }

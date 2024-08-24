@@ -12,10 +12,8 @@ public class AutomotiveService {
 
     private final DataConverter dataConverter = new DataConverter();
 
-    private final String ADDRESS = "https://parallelum.com.br/fipe/api/v1/";
-
     public String getCategoryAddress(String category) {
-        return ADDRESS + category.toLowerCase() + "/marcas/";
+        return "https://parallelum.com.br/fipe/api/v1/" + category.toLowerCase() + "/marcas/";
     }
 
     public String getBrandAddress(String categoryAddress, String brandCode) {
@@ -31,7 +29,7 @@ public class AutomotiveService {
     }
 
     public AutomotiveBrand getAutomotiveBrand(String brandAddress) {
-        return dataConverter.convertData(ApiConsumeService.getData(brandAddress + "/modelos/"),
+        return dataConverter.convertData(ApiConsumeService.getData(brandAddress),
                 AutomotiveBrand.class);
     }
 
