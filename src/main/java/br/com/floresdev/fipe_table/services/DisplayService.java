@@ -1,9 +1,8 @@
 package br.com.floresdev.fipe_table.services;
 
-import br.com.floresdev.fipe_table.models.AutomotiveBrand;
-import br.com.floresdev.fipe_table.models.AutomotiveYear;
-import br.com.floresdev.fipe_table.models.BaseBrand;
-import br.com.floresdev.fipe_table.models.BaseModel;
+import br.com.floresdev.fipe_table.models.Model;
+import br.com.floresdev.fipe_table.models.Vehicle;
+import br.com.floresdev.fipe_table.models.Data;
 
 import java.util.List;
 
@@ -23,21 +22,21 @@ public class DisplayService {
                 """);
     }
 
-    public void showBaseBrands(List<BaseBrand> baseBrands) {
+    public void showFipeData(List<Data> baseBrands) {
         baseBrands.forEach(System.out::println);
         System.out.println();
     }
 
-    public void showBaseModels(AutomotiveBrand automotiveBrand) {
-        for (BaseModel baseModel : automotiveBrand.baseModels()) {
-            System.out.println(baseModel);
+    public void showModels(Model model) {
+        for (Data data : model.data()) {
+            System.out.println(data);
         }
         System.out.println();
     }
 
-    public void showAutomotiveYears(List<AutomotiveYear> automotiveYears) {
+    public void showVehicles(List<Vehicle> vehicles) {
         System.out.println("\n!=!=! INFORMAÇÕES DOS VEÍCULOS A SEGUIR !=!=!\n");
-        automotiveYears.forEach(System.out::println);
+        vehicles.forEach(System.out::println);
     }
 
 }

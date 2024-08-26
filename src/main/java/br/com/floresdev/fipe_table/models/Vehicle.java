@@ -4,12 +4,12 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record AutomotiveYear(@JsonAlias("TipoVeiculo") Integer type, @JsonAlias("Valor") String price,
-                             @JsonAlias("Marca") String brand, @JsonAlias("Modelo") String model,
-                             @JsonAlias("AnoModelo") Integer year, @JsonAlias("Combustivel") String fuel,
-                             @JsonAlias("CodigoFipe") String fipeCode,
-                             @JsonAlias("MesReferencia") String referenceMonth,
-                             @JsonAlias("SiglaCombustivel") Character fuelAcronym) {
+public record Vehicle(@JsonAlias("TipoVeiculo") Integer type, @JsonAlias("Valor") String price,
+                      @JsonAlias("Marca") String brand, @JsonAlias("Modelo") String model,
+                      @JsonAlias("AnoModelo") Integer year, @JsonAlias("Combustivel") String fuel,
+                      @JsonAlias("CodigoFipe") String fipeCode,
+                      @JsonAlias("MesReferencia") String referenceMonth,
+                      @JsonAlias("SiglaCombustivel") Character fuelAcronym) {
     @Override
     public String toString() {
         return String.format("""

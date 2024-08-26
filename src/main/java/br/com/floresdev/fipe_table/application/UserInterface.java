@@ -1,6 +1,6 @@
 package br.com.floresdev.fipe_table.application;
 
-import br.com.floresdev.fipe_table.models.AutomotiveBrand;
+import br.com.floresdev.fipe_table.models.Model;
 import br.com.floresdev.fipe_table.services.AutomotiveService;
 import br.com.floresdev.fipe_table.services.DisplayService;
 import br.com.floresdev.fipe_table.utils.AutomotiveUrlBuilder;
@@ -26,26 +26,26 @@ public class UserInterface {
         String category = userInteraction.getCategory();
         String categoryAddress = automotiveUrlBuilder.getCategoryAddress(category);
 
-        // Exibe lista de BaseBrands
-        displayService.showBaseBrands(automotiveService.getBaseBrands(categoryAddress));
+        // Exibe lista de marcas base
+        displayService.showFipeData(automotiveService.getFipeData(categoryAddress));
 
-        // Instancia novo AutomotiveBrand e exibe lista de BaseModels
+        // Instancia novo Model e exibe lista de modelos base
         String brandCode = userInteraction.getBrandCode();
         String brandAddress = automotiveUrlBuilder.getBrandAddress(categoryAddress, brandCode);
-        AutomotiveBrand automotiveBrand = automotiveService.getAutomotiveBrand(brandAddress);
-        displayService.showBaseModels(automotiveBrand);
+        Model model = automotiveService.getModel(brandAddress);
+        displayService.showModels(model);
 
-        // Cria nova lista de BaseModel com base na lista antiga filtrada pelo nome inserido
+        // Cria nova lista de modelos base com base na lista antiga filtrada pelo nome inserido
         String baseModelName = userInteraction.getBaseModelName();
-        automotiveBrand = automotiveService.getFilteredAutomotiveBrand(automotiveBrand, baseModelName);
-        displayService.showBaseModels(automotiveBrand);
+        model = automotiveService.getFilteredModel(model, baseModelName);
+        displayService.showModels(model);
 
         Integer baseModelCode = userInteraction.getBaseModelCode();
         String yearsAddress = automotiveUrlBuilder.getYearsAddress(brandAddress, baseModelCode);
-        /* Para cada BaseYear dentro de AutomotiveModel, instancia novo AutomotiveYear com base no código do BaseYear
+        /* Para cada ano base dentro de Model, instancia novo Vehicle com base no código do ano base
         e armazena numa lista de AutomotiveYear */
-        displayService.showAutomotiveYears(automotiveService.getAutomotiveYears(
-                automotiveService.getBaseYears(yearsAddress), yearsAddress)
+        displayService.showVehicles(automotiveService.getVehicles(
+                automotiveService.getFipeData(yearsAddress), yearsAddress)
         );
     }
 
