@@ -75,10 +75,9 @@ src/
 │   │       ├── application/
 │   │       │   └── UserInterface.java
 │   │       ├── models/
-│   │       │   ├── AutomotiveBrand.java
-│   │       │   ├── AutomotiveYear.java
-│   │       │   ├── BaseBrand.java
-│   │       │   └── BaseYear.java
+│   │       │   ├── Data.java
+│   │       │   ├── Model.java
+│   │       │   └── Vehicle.java
 │   │       ├── services/
 │   │       │   ├── ApiService.java
 │   │       │   ├── AutomotiveService.java
